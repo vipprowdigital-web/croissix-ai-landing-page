@@ -13,7 +13,7 @@ export default function Modal({ title, component: Component, onClose }) {
 
   return (
     <div
-      className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 p-4 lg:p-6"
+      className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 p-4 sm:p-6"
       onClick={onClose}
     >
       <div
@@ -35,7 +35,7 @@ export default function Modal({ title, component: Component, onClose }) {
         </div>
 
         {/* Scrollable Context View Area */}
-        <div className="flex-1 overflow-y-auto p-6 lg:p-8 scrollbar-thin scrollbar-thumb-primary-accent/20">
+        <div className="flex-1 overflow-y-auto p-0  scrollbar-thin scrollbar-thumb-primary-accent/20 rounded-b-2xl">
           <Component />
         </div>
       </div>

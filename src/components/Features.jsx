@@ -298,12 +298,12 @@ export default function Features() {
               Automated.
             </span>
           </h2>
-          <p className="text-[#9CA3AF] text-lg max-w-2xl mx-auto">
+          <div className="text-[#9CA3AF] text-lg max-w-2xl mx-auto">
             <SpotlightText
               text=" Five powerful modules working together to dominate your local search
             results."
             />
-          </p>
+          </div>
         </motion.div>
 
         {/* Alternating Feature Sections Container */}

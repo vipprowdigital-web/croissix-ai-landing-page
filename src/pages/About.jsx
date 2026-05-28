@@ -70,7 +70,7 @@ export default function About() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center my-24"
+          className="text-center sm:my-24 my-18"
         >
           <span className="inline-flex items-center gap-2 bg-primary-accent/10 border border-primary-accent/25 text-primary-accent text-xs font-semibold px-4 py-2 rounded-full mb-5">
             Our Mission
@@ -81,7 +81,7 @@ export default function About() {
               Autonomous AI.
             </span>
           </h2>
-          <p className="text-[#9CA3AF] text-lg max-w-3xl mx-auto leading-relaxed">
+          <p className="text-[#9CA3AF] text-md max-w-3xl mx-auto leading-relaxed">
             Croissix AI builds zero-friction infrastructure that puts local
             physical businesses on autopilot, turning regional map rankings into
             an exact, predictable engineering formula.
@@ -130,11 +130,11 @@ export default function About() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <div className="bg-card-surface/40 border border-primary-accent/20 rounded-2xl p-8 relative overflow-hidden backdrop-blur-md group hover:border-primary-accent/40 transition-all duration-300">
+            <div className="bg-card-surface/40 border border-primary-accent/20 rounded-2xl p-5 sm:p-8 relative overflow-hidden backdrop-blur-md group hover:border-primary-accent/40 transition-all duration-300">
               <div className="absolute top-0 right-0 p-4 opacity-20 group-hover:opacity-40 transition-opacity">
                 <Rocket size={80} className="text-primary-accent" />
               </div>
-              <p className="text-white text-lg font-medium font-display mb-4">
+              <p className="text-white text-md font-medium font-display mb-4">
                 "Our north star is removing human operational friction from the
                 local visibility cycle entirely."
               </p>
@@ -158,7 +158,7 @@ export default function About() {
         </div>
 
         {/* ─── VALUE MATRIX (3-COLUMN BENTO BLOCKS) ─── */}
-        <div className="mb-32">
+        <div className="mb-15 sm:mb-32">
           <div className="text-center lg:text-left mb-12">
             <h3 className="text-2xl lg:text-3xl font-bold text-white tracking-tight">
               Our Core Architectures
@@ -200,7 +200,7 @@ export default function About() {
         </div>
 
         {/* ─── PROGRESSIVE CHRONOLOGY LINE ─── */}
-        <div className="border-t border-primary-accent/10 pt-24">
+        <div className="border-t border-primary-accent/10 sm:pt-24 pt-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
             <div className="lg:col-span-4">
               <span className="text-xs uppercase font-bold tracking-widest text-primary-accent">
@@ -242,13 +242,13 @@ export default function About() {
           initial={{ opacity: 0, scale: 0.98 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          className="mt-32 p-8 lg:p-12 bg-linear-to-br from-card-surface/80 to-base-bg border border-primary-accent/30 rounded-3xl text-center relative overflow-hidden shadow-2xl"
+          className="mt-32 p-6 sm:p-8 lg:p-12 bg-linear-to-br from-card-surface/80 to-base-bg border border-primary-accent/30 rounded-3xl text-center relative overflow-hidden shadow-2xl"
         >
           <div className="absolute -top-24 -left-24 w-48 h-48 bg-primary-accent/10 rounded-full blur-3xl pointer-events-none" />
-          <h3 className="text-3xl lg:text-4xl font-extrabold text-white mb-4 tracking-tight">
+          <h3 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white sm:mb-4 mb-1 tracking-tight">
             Ready to Put Your Local Visibility on Autopilot?
           </h3>
-          <p className="text-[#9CA3AF] text-sm lg:text-base max-w-xl mx-auto mb-8">
+          <p className="text-[#9CA3AF] text-sm lg:text-base max-w-xl mx-auto sm:mb-8 mb-5">
             Deploy our five core modular workflows to automatically connect,
             capture, audit, and dominate your regional footprint maps.
           </p>

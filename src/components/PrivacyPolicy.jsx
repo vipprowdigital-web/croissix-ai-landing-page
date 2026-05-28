@@ -33,14 +33,14 @@ const itemVariants = {
 export default function PrivacyPolicy() {
   return (
     <section
-      className="bg-base-bg text-[#9CA3AF] py-24 relative overflow-hidden min-h-screen"
+      className="bg-base-bg text-[#9CA3AF] py-10 sm:py-24 relative overflow-hidden min-h-screen"
       id="privacy-policy"
     >
       {/* Decorative background accent grids */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-125 bg-primary-accent/5 rounded-full blur-[160px] pointer-events-none" />
       <div className="absolute bottom-0 right-10 w-96 h-96 bg-[#c084fc]/5 rounded-full blur-[140px] pointer-events-none" />
 
-      <div className="max-w-4xl mx-auto px-6 relative z-10">
+      <div className="max-w-4xl mx-auto px-3 sm:px-6 relative z-10">
         {/* Header Section */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -71,7 +71,7 @@ export default function PrivacyPolicy() {
           {/* 1. Introduction */}
           <motion.div
             variants={itemVariants}
-            className="bg-card-surface/40 border border-primary-accent/10 rounded-2xl p-6 lg:p-8 space-y-4"
+            className="bg-card-surface/40 border border-primary-accent/10 rounded-2xl px-4 py-6 md:p-6 lg:p-8 space-y-4"
           >
             <div className="flex items-center gap-3 text-white font-bold text-xl">
               <span className="text-primary-accent">
@@ -100,7 +100,7 @@ export default function PrivacyPolicy() {
           {/* 2. Information We Collect */}
           <motion.div
             variants={itemVariants}
-            className="bg-card-surface/40 border border-primary-accent/10 rounded-2xl p-6 lg:p-8 space-y-6"
+            className="bg-card-surface/40 border border-primary-accent/10 rounded-2xl px-4 py-6  sm:p-6 lg:p-8 space-y-6"
           >
             <div className="flex items-center gap-3 text-white font-bold text-xl">
               <span className="text-primary-accent">
@@ -138,7 +138,7 @@ export default function PrivacyPolicy() {
             </div>
 
             <div className="pt-4 border-t border-white/5 space-y-3">
-              <div className="flex items-center gap-2 text-white font-semibold text-base">
+              <div className="flex items-start gap-2 text-white font-semibold text-base">
                 <ImageIcon size={18} className="text-primary-accent" />
                 <h3>2.3 Media & File Access (Photos/Videos)</h3>
               </div>
@@ -157,7 +157,7 @@ export default function PrivacyPolicy() {
 
             {/* Custom Highlight Panel */}
             <div className="bg-primary-accent/5 border border-primary-accent/20 rounded-xl p-4 mt-4">
-              <div className="flex items-center gap-2 text-white font-bold text-sm mb-2">
+              <div className="flex items-start gap-2 text-white font-bold text-sm mb-2">
                 <ShieldCheck size={16} className="text-emerald-400" />
                 <span>Important Clarifications:</span>
               </div>
@@ -178,9 +178,9 @@ export default function PrivacyPolicy() {
           {/* 3. Payments & Financial Information */}
           <motion.div
             variants={itemVariants}
-            className="bg-card-surface/40 border border-primary-accent/10 rounded-2xl p-6 lg:p-8 space-y-4"
+            className="bg-card-surface/40 border border-primary-accent/10 rounded-2xl px-4 py-6 sm:p-6 lg:p-8 space-y-4"
           >
-            <div className="flex items-center gap-3 text-white font-bold text-xl">
+            <div className="flex items-start gap-3 text-white font-bold text-xl">
               <span className="text-primary-accent">
                 <CreditCard size={22} />
               </span>
@@ -212,7 +212,7 @@ export default function PrivacyPolicy() {
             {/* 4. How We Use Info */}
             <motion.div
               variants={itemVariants}
-              className="bg-card-surface/40 border border-primary-accent/10 rounded-2xl p-6 space-y-3"
+              className="bg-card-surface/40 border border-primary-accent/10 rounded-2xl px-4 py-6  sm:p-6 space-y-3"
             >
               <h2 className="text-white font-bold text-lg flex items-center gap-2">
                 <span className="w-1.5 h-4 bg-primary-accent rounded-full inline-block" />
@@ -234,7 +234,7 @@ export default function PrivacyPolicy() {
             {/* 5. Permissions We Request */}
             <motion.div
               variants={itemVariants}
-              className="bg-card-surface/40 border border-primary-accent/10 rounded-2xl p-6 space-y-3"
+              className="bg-card-surface/40 border border-primary-accent/10 rounded-2xl px-4 py-6  sm:p-6 space-y-3"
             >
               <h2 className="text-white font-bold text-lg flex items-center gap-2">
                 <span className="w-1.5 h-4 bg-[#c084fc] rounded-full inline-block" />
@@ -264,7 +264,7 @@ export default function PrivacyPolicy() {
           {/* 6, 7 & 8. Data Management Row */}
           <motion.div
             variants={itemVariants}
-            className="bg-card-surface/40 border border-primary-accent/10 rounded-2xl p-6 lg:p-8 space-y-6"
+            className="bg-card-surface/40 border border-primary-accent/10 rounded-2xl px-4 py-6  sm:p-6 lg:p-8 space-y-6"
           >
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="space-y-2">
@@ -308,7 +308,7 @@ export default function PrivacyPolicy() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <motion.div
               variants={itemVariants}
-              className="bg-card-surface/40 border border-primary-accent/10 rounded-2xl p-6 space-y-3"
+              className="bg-card-surface/40 border border-primary-accent/10 rounded-2xl px-4 py-6 sm:p-6 space-y-3"
             >
               <h2 className="text-white font-bold text-lg flex items-center gap-2">
                 <Eye size={18} className="text-primary-accent" /> 9. User Rights
@@ -324,7 +324,7 @@ export default function PrivacyPolicy() {
 
             <motion.div
               variants={itemVariants}
-              className="bg-card-surface/40 border border-primary-accent/10 rounded-2xl p-6 space-y-3"
+              className="bg-card-surface/40 border border-primary-accent/10 rounded-2xl px-4 py-6 sm:p-6 space-y-3"
             >
               <h2 className="text-white font-bold text-lg flex items-center gap-2">
                 <UserCheck size={18} className="text-[#c084fc]" /> 10.
@@ -387,7 +387,7 @@ export default function PrivacyPolicy() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="mt-20 pt-8 border-t border-primary-accent/20 flex flex-col md:flex-row justify-between items-start md:items-center gap-6"
+          className="mt-20 pt-8 sm:px-0 p-3 border-t border-primary-accent/20 flex flex-col md:flex-row justify-between items-start md:items-center gap-6"
         >
           <div className="space-y-1">
             <p className="text-white font-extrabold text-lg tracking-wide bg-linear-to-r from-primary-accent to-[#c084fc] bg-clip-text">

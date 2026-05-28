@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import CTAFooter from "./components/CTAFooter";
@@ -9,9 +9,12 @@ import { useEffect } from "react";
 import { scrollToTop } from "./utils/scrollToTop";
 
 export default function App() {
+  const location = useLocation();
+
+  // Listen directly to route transitions instead of a generic mount event
   useEffect(() => {
     scrollToTop();
-  }, []);
+  }, [location.pathname]);
 
   return (
     <>

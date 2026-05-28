@@ -7,7 +7,7 @@ import Button from "../animations/Button";
 
 function CTABanner() {
   return (
-    <section className="relative overflow-hidden py-28 bg-base-bg">
+    <section className="relative overflow-hidden py-15 sm:py-28 bg-base-bg">
       {/* Radial gradient background */}
       <div
         className="absolute inset-0 pointer-events-none"
@@ -18,7 +18,7 @@ function CTABanner() {
       />
       {/* Subtle grid */}
       <div
-        className="absolute inset-0 opacity-[0.03] pointer-events-none"
+        className="absolute inset-0 opacity-[0.05] pointer-events-none"
         style={{
           backgroundImage:
             "linear-gradient(#9f57f5 1px, transparent 1px), linear-gradient(90deg, #9f57f5 1px, transparent 1px)",
@@ -58,7 +58,7 @@ function CTABanner() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.65, delay: 0.2 }}
-          className="text-[#9CA3AF] text-lg mb-10 max-w-xl mx-auto leading-relaxed"
+          className="text-[#9CA3AF] text-md mb-10 max-w-xl mx-auto leading-relaxed"
         >
           Claim your Google Business Profile Score today. No commitment. Just
           data-driven clarity on how to rank #1 locally.
@@ -103,7 +103,7 @@ function Footer() {
         <div className="flex flex-col md:flex-row items-start justify-between gap-8">
           {/* Brand */}
           <div className="max-w-xs">
-            <div className="flex items-center gap-2 mb-3 w-18 ">
+            <div className="flex items-center gap-2 mb-3 w-22">
               {/* <div className="w-7 h-7 rounded-lg bg-linear-to-br from-primary-accent to-[#6b2fa0] flex items-center justify-center shadow-lg shadow-primary-accent/20">
                 <Sparkles size={13} className="text-white" />
               </div> */}
@@ -142,7 +142,7 @@ function Footer() {
               ],
             ].map(([group, links]) => (
               <div key={group}>
-                <p className="text-white font-semibold text-xs mb-3">{group}</p>
+                <p className="text-white font-semibold text-sm mb-3">{group}</p>
                 {links.map((link) => (
                   <a
                     key={link.name}
@@ -159,7 +159,7 @@ function Footer() {
 
           {/* Legal & Social */}
           <div>
-            <p className="text-white font-semibold text-xs mb-3">Legal</p>
+            <p className="text-white font-semibold text-sm mb-3">Legal</p>
             {["Privacy Policy", "Terms of Service"].map((l) => (
               <button
                 key={l}

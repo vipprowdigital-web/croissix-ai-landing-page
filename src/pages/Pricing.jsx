@@ -48,9 +48,9 @@ export default function Pricing() {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-150 bg-primary-accent/10 rounded-full blur-[160px] pointer-events-none" />
       <div className="absolute top-12 right-12 w-72 h-72 bg-[#c084fc]/5 rounded-full blur-[100px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         {/* ─── SECTION HEADER ─── */}
-        <div className="text-center mt-20 mb-30">
+        <div className="text-center mt-10 sm:mt-20 mb-20 sm:mb-30">
           <motion.span
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -61,7 +61,7 @@ export default function Pricing() {
             Pricing
           </motion.span>
 
-          <h2 className="text-4xl lg:text-5xl font-extrabold mb-4 tracking-tight">
+          <h2 className="text-4xl sm:text-5xl font-extrabold mb-4 sm:mb-6 tracking-tight">
             <SpotlightText text="One Simple Plan. Infinite Local" />{" "}
             <span className="bg-linear-to-r from-primary-accent to-[#c084fc] bg-clip-text text-transparent">
               Dominance.
@@ -120,14 +120,14 @@ export default function Pricing() {
           {/* RIGHT SIDE: PREMIUM 3-DAY TRIAL PRICING CARD */}
           <div className="lg:col-span-5 order-1 lg:order-2 relative">
             {/* Visual Accent Box Behind Card */}
-            <div className="absolute -inset-1 bg-linear-to-b from-primary-accent to-[#c084fc] rounded-3xl blur-md opacity-30 animate-pulse" />
+            <div className="absolute -inset-1 bg-linear-to-b from-primary-accent to-[#c084fc] rounded-3xl blur-md opacity-20 sm:opacity-30 animate-pulse" />
 
             <motion.div
               initial={{ opacity: 0, y: 30, scale: 0.98 }}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true }}
               transition={{ type: "spring", stiffness: 80, damping: 15 }}
-              className="relative bg-card-surface border border-primary-accent/40 rounded-3xl p-8 shadow-2xl flex flex-col justify-between overflow-hidden min-h-135"
+              className="relative bg-card-surface border border-primary-accent/40 rounded-3xl px-4 py-7 sm:p-8 shadow-2xl flex flex-col justify-between overflow-hidden min-h-135"
             >
               {/* Dynamic Top Badge */}
               <div className="absolute top-0 right-0 bg-linear-to-l from-primary-accent to-[#c084fc] text-white text-[10px] uppercase font-bold tracking-widest px-5 py-1.5 rounded-bl-2xl shadow-md">

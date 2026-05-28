@@ -239,7 +239,7 @@ export default function Features() {
   return (
     <section className="bg-base-bg text-white relative">
       {/* ─── STICKY HEADER ZONE ─── */}
-      <div className="max-w-7xl mx-auto px-6 my-20 pt-24 pb-12 text-center">
+      <div className="max-w-7xl mx-auto px-6 my-10 sm:my-20 pt-24 pb-12 text-center">
         <span className="inline-flex items-center gap-2 bg-primary-accent/10 border border-primary-accent/25 text-primary-accent text-xs font-semibold px-4 py-2 rounded-full mb-5">
           Core Services
         </span>
@@ -249,7 +249,7 @@ export default function Features() {
             Automated.
           </span>
         </h2>
-        <p className="text-[#9CA3AF] text-lg max-w-2xl mx-auto">
+        <p className="text-[#9CA3AF] text-md max-w-2xl mx-auto">
           Five powerful modules working together to dominate your local search
           results.
         </p>
@@ -262,7 +262,7 @@ export default function Features() {
           return (
             <div
               key={card.title}
-              className="sticky top-12 lg:top-24 w-full mb-16 lg:mb-24"
+              className="sticky top-24 sm:top-12 lg:top-24 w-full mb-16 lg:mb-24"
             >
               {/* Floating Card Element */}
               <motion.div
