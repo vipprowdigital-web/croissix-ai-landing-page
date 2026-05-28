@@ -1,6 +1,7 @@
 import { motion, useInView, useMotionValue, useSpring } from "framer-motion";
 import { useEffect, useRef } from "react";
 import { TrendingUp, Zap, Clock } from "lucide-react";
+import SpotlightText from "../animations/SpotlightText";
 
 function AnimatedNumber({ to, decimals = 0, prefix = "", suffix = "" }) {
   const ref = useRef(null);
@@ -88,14 +89,19 @@ export default function Metrics() {
             Real Results
           </span>
           <h2 className="text-4xl lg:text-5xl font-extrabold text-white mb-4 tracking-tight">
-            Numbers That{" "}
+            {/* Numbers That{" "} */}
+            <SpotlightText text="Numbers That " />{" "}
             <span className="bg-linear-to-r from-primary-accent to-[#c084fc] bg-clip-text text-transparent">
               Speak for Themselves.
             </span>
           </h2>
           <p className="text-[#9CA3AF] text-lg max-w-xl mx-auto">
-            Across hundreds of local businesses using Croissix AI, the impact is
-            clear.
+            <SpotlightText
+              text="Across hundreds of local businesses using Croissix AI, the impact is
+            clear."
+            />
+            {/* Across hundreds of local businesses using Croissix AI, the impact is
+            clear. */}
           </p>
         </motion.div>
 

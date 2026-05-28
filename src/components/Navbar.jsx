@@ -36,14 +36,14 @@ export default function Navbar() {
           </div> */}
           <div className="w-12 h-12 rounded-full overflow-hidden">
             <img
-              src="/croissix-logo.png"
+              src="/croissix-only-logo.png"
               alt="Croissix Logo"
               className="w-full h-full object-contain rounded-full"
             />
           </div>
-          {/* <span className="text-white font-bold text-lg tracking-tight">
+          <span className="text-white font-bold text-lg tracking-tight">
             Croissix <span className="text-primary-accent">AI</span>
-          </span> */}
+          </span>
         </motion.div>
 
         {/* Desktop Nav */}
@@ -101,7 +101,7 @@ export default function Navbar() {
           whileHover={{ scale: 1.04 }}
           whileTap={{ scale: 0.97 }}
           // 'overflow-hidden' keeps the rotating light inside the rounded corners
-          className="hidden md:flex relative items-center justify-center p-[2px] rounded-xl overflow-hidden shadow-lg shadow-primary-accent/25 transition-all duration-200"
+          className="hidden md:flex relative items-center justify-center p-0.5 rounded-xl overflow-hidden shadow-lg shadow-primary-accent/25 transition-all duration-200"
         >
           {/* 1. The Moving Border Element (Rotates infinitely) */}
           <motion.div

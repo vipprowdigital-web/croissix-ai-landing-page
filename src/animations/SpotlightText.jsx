@@ -25,7 +25,7 @@ export default function SpotlightText({ text }) {
   };
 
   return (
-    <span
+    <div
       ref={containerRef}
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovered(true)}
@@ -54,7 +54,7 @@ export default function SpotlightText({ text }) {
         }}
         transition={{ type: "spring", stiffness: 300, damping: 20 }}
       />
-    </span>
+    </div>
   );
 }
 

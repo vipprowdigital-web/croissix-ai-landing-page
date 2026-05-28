@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { isValidElement, useState } from "react";
-import { Sparkles, Mail, Phone } from "lucide-react";
+import { Sparkles, Mail, Phone, ArrowUpRight } from "lucide-react";
 import Modal from "./Modal";
 import PrivacyPolicy from "./PrivacyPolicy";
 import Button from "../animations/Button";
@@ -128,16 +128,17 @@ function Footer() {
               [
                 "Product",
                 [
-                  { name: "Features", link: "#features" },
-                  { name: "Pricing", link: "#pricing" },
+                  { name: "Features", link: "/features" },
+                  { name: "Pricing", link: "/pricing" },
+                  { name: "Web Version", link: "https://ai.croissix.com" },
                 ],
               ],
               [
                 "Company",
                 [
                   { name: "About", link: "/about" },
-                  { name: "Website", link: "https://vipprow.com" },
-                  { name: "Portfolio", link: "https://portfolio.vipprow.com" },
+                  // { name: "Website", link: "https://vipprow.com" },
+                  // { name: "Portfolio", link: "https://portfolio.vipprow.com" },
                 ],
               ],
             ].map(([group, links]) => (
@@ -157,10 +158,41 @@ function Footer() {
             ))}
           </div>
 
+          <div className="hidden sm:block">
+            <p className="text-white font-semibold text-sm mb-3">
+              Our Platform
+            </p>
+            {[
+              {
+                name: "Official Website",
+                link: "https://vipprow.com",
+              },
+              {
+                name: "Portfolio",
+                link: "https://portfolio.vipprow.com",
+              },
+            ].map((link) => {
+              return (
+                <a
+                  href={link.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center gap-1 text-[#9CA3AF] hover:text-white text-sm mb-2 transition-colors duration-200"
+                >
+                  {link.name}
+                  <ArrowUpRight
+                    size={14}
+                    className="opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all"
+                  />
+                </a>
+              );
+            })}
+          </div>
+
           {/* Legal & Social */}
           <div>
             <p className="text-white font-semibold text-sm mb-3">Legal</p>
-            {["Privacy Policy", "Terms of Service"].map((l) => (
+            {["Privacy Policy"].map((l) => (
               <button
                 key={l}
                 onClick={(e) => {
@@ -175,7 +207,11 @@ function Footer() {
 
             <div className="flex gap-3 mt-4">
               {[
-                { icon: <Phone size={15} />, label: "Twitter", link: "" },
+                {
+                  icon: <Phone size={15} />,
+                  label: "Phone",
+                  link: "tel:9669932121",
+                },
                 // {
                 //   icon: "/instagram-logo-transparent.svg",
                 //   label: "Instagram",
