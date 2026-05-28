@@ -174,6 +174,7 @@ function Footer() {
             ].map((link) => {
               return (
                 <a
+                  key={link.name}
                   href={link.link}
                   target="_blank"
                   rel="noopener noreferrer"
