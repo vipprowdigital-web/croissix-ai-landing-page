@@ -14,6 +14,7 @@ import {
   Pencil,
   Send,
 } from "lucide-react";
+import SpotlightText from "../animations/SpotlightText";
 
 /* ─── Framer Motion Animation Variants ─── */
 const textVariant = (direction) => ({
@@ -292,14 +293,16 @@ export default function Features() {
             Core Services
           </span>
           <h2 className="text-4xl lg:text-5xl font-extrabold text-white mb-4 tracking-tight">
-            Everything Your Local Business Needs,{" "}
+            <SpotlightText text="Everything Your Local Business Needs," />{" "}
             <span className="bg-linear-to-r from-primary-accent to-[#c084fc] bg-clip-text text-transparent">
               Automated.
             </span>
           </h2>
           <p className="text-[#9CA3AF] text-lg max-w-2xl mx-auto">
-            Five powerful modules working together to dominate your local search
-            results.
+            <SpotlightText
+              text=" Five powerful modules working together to dominate your local search
+            results."
+            />
           </p>
         </motion.div>
 

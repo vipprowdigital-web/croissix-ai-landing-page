@@ -75,7 +75,7 @@ export default function Metrics() {
         <div className="absolute top-1/2 left-1/4 w-125 h-75 bg-primary-accent/6 rounded-full blur-[100px]" />
       </div>
 
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -113,7 +113,7 @@ export default function Metrics() {
                 ease: [0.22, 1, 0.36, 1],
               }}
               whileHover={{ scale: 1.03, y: -4 }}
-              className="relative bg-card-surface/70 border border-primary-accent/20 rounded-2xl p-8 overflow-hidden group hover:border-primary-accent/40 transition-all duration-300"
+              className="relative bg-card-surface/70 border border-primary-accent/20 rounded-2xl p-5 sm:p-8 overflow-hidden group hover:border-primary-accent/40 transition-all duration-300"
             >
               {/* Glow on hover */}
               <div

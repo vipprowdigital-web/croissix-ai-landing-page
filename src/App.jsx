@@ -1,19 +1,28 @@
-import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
-import Features from "./components/Features";
-import Metrics from "./components/Metrics";
-import Upcoming from "./components/Upcoming";
+import { Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
+import About from "./pages/About";
 import CTAFooter from "./components/CTAFooter";
+import Navbar from "./components/Navbar";
+import Features from "./pages/Features";
+import Pricing from "./pages/Pricing";
+import { useEffect } from "react";
+import { scrollToTop } from "./utils/scrollToTop";
 
 export default function App() {
+  useEffect(() => {
+    scrollToTop();
+  }, []);
+
   return (
-    <div className="bg-base-bg min-h-screen antialiased">
+    <>
       <Navbar />
-      <Hero />
-      <Features />
-      <Metrics />
-      <Upcoming />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/features" element={<Features />} />
+        <Route path="/pricing" element={<Pricing />} />
+      </Routes>
       <CTAFooter />
-    </div>
+    </>
   );
 }

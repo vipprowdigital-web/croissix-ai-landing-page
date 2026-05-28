@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import {
-  ArrowRight,
   MapPin,
   Star,
   TrendingUp,
@@ -9,6 +8,7 @@ import {
   CheckCircle2,
   BarChart2,
 } from "lucide-react";
+import Button from "../animations/Button";
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 30 },
@@ -236,11 +236,11 @@ export default function Hero() {
             </motion.div>
 
             {/* CTA buttons */}
-            <motion.div
+            {/* <motion.div
               {...fadeUp(0.5)}
               className="flex flex-col sm:flex-row gap-3"
-            >
-              <motion.button
+            > */}
+            {/* <motion.button
                 whileHover={{ scale: 1.04 }}
                 whileTap={{ scale: 0.97 }}
                 className="group flex items-center justify-center gap-2 bg-primary-accent hover:bg-primary-accent-hover text-white font-bold px-8 py-4 rounded-xl transition-all duration-200 shadow-xl shadow-primary-accent/30 text-sm capitalize"
@@ -250,16 +250,17 @@ export default function Hero() {
                   size={16}
                   className="group-hover:translate-x-1 transition-transform duration-200"
                 />
-              </motion.button>
+              </motion.button> */}
 
-              {/* <motion.button
+            {/* <motion.button
                 whileHover={{ scale: 1.04 }}
                 whileTap={{ scale: 0.97 }}
                 className="flex items-center justify-center gap-2 border border-white/10 hover:border-white/20 text-white font-semibold px-8 py-4 rounded-xl transition-all duration-200 text-sm bg-white/3 hover:bg-white/5"
               >
                 Watch Demo
               </motion.button> */}
-            </motion.div>
+            {/* </motion.div> */}
+            <Button text="Download the app now" />
 
             <motion.p {...fadeUp(0.6)} className="text-[#9CA3AF] text-xs mt-4">
               No credit card required · Free for 3 days

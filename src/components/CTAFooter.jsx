@@ -1,8 +1,9 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
-import { ArrowRight, Sparkles, Mail, Phone } from "lucide-react";
+import { isValidElement, useState } from "react";
+import { Sparkles, Mail, Phone } from "lucide-react";
 import Modal from "./Modal";
 import PrivacyPolicy from "./PrivacyPolicy";
+import Button from "../animations/Button";
 
 function CTABanner() {
   return (
@@ -44,7 +45,7 @@ function CTABanner() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.65, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-          className="text-4xl lg:text-6xl font-extrabold text-white mb-5 tracking-tight leading-[1.1]"
+          className="text-4xl lg:text-5xl font-extrabold text-white mb-5 tracking-tight leading-[1.1]"
         >
           Take Control of Your{" "}
           <span className="bg-linear-to-r from-primary-accent to-[#c084fc] bg-clip-text text-transparent">
@@ -70,18 +71,7 @@ function CTABanner() {
           transition={{ duration: 0.65, delay: 0.3 }}
           className="flex flex-row justify-center gap-3 max-w-md mx-auto"
         >
-          <motion.a
-            whileHover={{ scale: 1.04 }}
-            whileTap={{ scale: 0.97 }}
-            href="#"
-            className="group flex items-center justify-center gap-2 bg-primary-accent hover:bg-primary-accent-hover text-white font-bold px-6 py-3.5 rounded-xl transition-all duration-200 shadow-xl shadow-primary-accent/30 text-sm whitespace-nowrap"
-          >
-            Download the App Now
-            <ArrowRight
-              size={16}
-              className="group-hover:translate-x-1 transition-transform duration-200"
-            />
-          </motion.a>
+          <Button text="Download the App Now" />
         </motion.div>
 
         <motion.p
@@ -113,15 +103,20 @@ function Footer() {
         <div className="flex flex-col md:flex-row items-start justify-between gap-8">
           {/* Brand */}
           <div className="max-w-xs">
-            <div className="flex items-center gap-2 mb-3">
-              <div className="w-7 h-7 rounded-lg bg-linear-to-br from-primary-accent to-[#6b2fa0] flex items-center justify-center shadow-lg shadow-primary-accent/20">
+            <div className="flex items-center gap-2 mb-3 w-18 ">
+              {/* <div className="w-7 h-7 rounded-lg bg-linear-to-br from-primary-accent to-[#6b2fa0] flex items-center justify-center shadow-lg shadow-primary-accent/20">
                 <Sparkles size={13} className="text-white" />
-              </div>
-              <span className="text-white font-bold text-base">
+              </div> */}
+              <img
+                src="/croissix-logo.png"
+                alt="Croissix Logo"
+                className="w-full h-full object-contain rounded-full"
+              />
+              {/* <p className="text-white font-bold text-base ">
                 Croissix <span className="text-primary-accent">AI</span>
-              </span>
+              </p> */}
             </div>
-            <p className="text-[#9CA3AF] text-xs leading-relaxed">
+            <p className="text-[#9CA3AF] text-sm leading-relaxed">
               AI-powered local marketing automation for businesses that want to
               dominate their neighborhood, not just survive it.
             </p>
@@ -140,8 +135,9 @@ function Footer() {
               [
                 "Company",
                 [
-                  { name: "About", link: "#about" },
-                  { name: "Contact", link: "#contact" },
+                  { name: "About", link: "/about" },
+                  { name: "Website", link: "https://vipprow.com" },
+                  { name: "Portfolio", link: "https://portfolio.vipprow.com" },
                 ],
               ],
             ].map(([group, links]) => (
@@ -151,7 +147,8 @@ function Footer() {
                   <a
                     key={link.name}
                     href={link.link}
-                    className="block text-[#9CA3AF] hover:text-white text-xs mb-2 transition-colors duration-200"
+                    className="block text-[#9CA3AF] hover:text-white text-sm mb-2 transition-colors duration-200"
+                    target={link.link.startsWith("https") ? "_blank" : "_self"}
                   >
                     {link.name}
                   </a>
@@ -170,7 +167,7 @@ function Footer() {
                   e.preventDefault();
                   setIsOpen(true);
                 }}
-                className="block text-[#9CA3AF] hover:text-white text-xs mb-2 transition-colors duration-200"
+                className="block text-[#9CA3AF] hover:text-white text-sm mb-2 transition-colors duration-200"
               >
                 {l}
               </button>
@@ -178,17 +175,32 @@ function Footer() {
 
             <div className="flex gap-3 mt-4">
               {[
-                { icon: <Phone size={15} />, label: "Twitter" },
-                { icon: <Mail size={15} />, label: "LinkedIn" },
-                { icon: <Mail size={15} />, label: "Email" },
-              ].map(({ icon, label }) => (
+                { icon: <Phone size={15} />, label: "Twitter", link: "" },
+                // {
+                //   icon: "/instagram-logo-transparent.svg",
+                //   label: "Instagram",
+                //   link: "",
+                // },
+                {
+                  icon: <Mail size={15} />,
+                  label: "Gmail",
+                  link: "mailto:vipprowdigital@gmail.com",
+                },
+              ].map(({ icon, label, link }) => (
                 <motion.a
                   key={label}
-                  href="#"
+                  href={link}
                   whileHover={{ scale: 1.1, color: "#9f57f5" }}
-                  className="w-8 h-8 bg-card-surface/60 border border-white/10 rounded-lg flex items-center justify-center text-[#9CA3AF] hover:text-primary-accent hover:border-primary-accent/30 transition-all duration-200"
+                  className="w-8 h-8 bg-card-surface/60 border border-white/10 rounded-lg flex items-center justify-center text-[#9CA3AF] hover:text-primary-accent hover:border-primary-accent/30 transition-all duration-200 hover:rotate-10"
                 >
-                  {icon}
+                  {isValidElement(icon) ? (
+                    icon
+                  ) : (
+                    <img
+                      src={icon}
+                      className="w-6 h-6 dark:invert hover:text-primary-accent"
+                    />
+                  )}
                 </motion.a>
               ))}
             </div>

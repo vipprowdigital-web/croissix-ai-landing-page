@@ -1,47 +1,65 @@
 import { motion } from "framer-motion";
-import { Sparkles, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
 
-const links = ["Features", "Metrics", "Upcoming"];
+const links = [
+  { name: "Home", path: "/" },
+  { name: "About", path: "/about" },
+  { name: "Features", path: "/features" },
+  { name: "Pricing", path: "/pricing" },
+];
+const MotionNavLink = motion(NavLink);
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const [activeLink, setActiveLink] = useState("Home");
+  const navigate = useNavigate();
 
   return (
     <motion.header
       initial={{ y: -80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-      className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-[#101015]/70 border-b border-white/5"
+      className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-base-bg/70 border-b border-white/5"
     >
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo */}
         <motion.div
           whileHover={{ scale: 1.02 }}
           className="flex items-center gap-2 cursor-pointer"
+          onClick={() => navigate("/")}
         >
-          <div className="w-8 h-8 rounded-lg bg-linear-to-br from-[#9f57f5] to-[#6b2fa0] flex items-center justify-center shadow-lg shadow-[#9f57f5]/20">
+          {/* <div className="w-8 h-8 rounded-lg bg-linear-to-br from-primary-accent to-[#6b2fa0] flex items-center justify-center shadow-lg shadow-primary-accent/20">
             <Sparkles size={16} className="text-white" />
+          </div> */}
+          <div className="w-12 h-12 rounded-full overflow-hidden">
+            <img
+              src="/croissix-logo.png"
+              alt="Croissix Logo"
+              className="w-full h-full object-contain rounded-full"
+            />
           </div>
-          <span className="text-white font-bold text-lg tracking-tight">
-            Croissix <span className="text-[#9f57f5]">AI</span>
-          </span>
+          {/* <span className="text-white font-bold text-lg tracking-tight">
+            Croissix <span className="text-primary-accent">AI</span>
+          </span> */}
         </motion.div>
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-8">
           {links.map((link, i) => (
-            <motion.a
-              key={link}
-              href={`#${link.toLowerCase()}`}
+            <MotionNavLink
+              key={link.name}
+              to={link.path}
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 * i + 0.3 }}
-              className="relative text-[#9CA3AF] hover:text-white text-sm font-medium transition-colors duration-200 group"
+              className={`relative text-[#9CA3AF] hover:text-white cursor-pointer text-sm font-bold transition-colors duration-300 group px-3 py-0.5 ${activeLink === link.name ? "text-white bg-primary-accent" : ""}`}
+              onClick={() => setActiveLink(link.name)}
             >
-              {link}
-              <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-[#9f57f5] group-hover:w-full transition-all duration-300" />
-            </motion.a>
+              {link.name}
+              <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-primary-accent group-hover:w-full transition-all duration-300" />
+            </MotionNavLink>
           ))}
         </nav>
 
@@ -52,7 +70,7 @@ export default function Navbar() {
           transition={{ delay: 0.5 }}
           whileHover={{ scale: 1.04 }}
           whileTap={{ scale: 0.97 }}
-          className="hidden md:flex items-center gap-2 bg-[#9f57f5] hover:bg-[#b06ff7] text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-all duration-200 shadow-lg shadow-[#9f57f5]/25"
+          className="hidden md:flex items-center gap-2 bg-primary-accent hover:bg-primary-accent-hover text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-all duration-200 shadow-lg shadow-primary-accent/25"
         >
           Get Started
         </motion.button>
@@ -72,19 +90,19 @@ export default function Navbar() {
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: "auto" }}
           exit={{ opacity: 0, height: 0 }}
-          className="md:hidden bg-[#101015]/95 border-t border-white/5 px-6 py-4 flex flex-col gap-4"
+          className="md:hidden bg-base-bg/95 border-t border-white/5 px-6 py-4 flex flex-col gap-4"
         >
           {links.map((link) => (
-            <a
-              key={link}
-              href={`#${link.toLowerCase()}`}
-              className="text-[#9CA3AF] hover:text-white text-sm font-medium"
+            <NavLink
+              key={link.name}
+              to={link.path}
+              className="text-[#9CA3AF] hover:text-white text-sm font-medium cursor-pointer transition-colors duration-200"
               onClick={() => setOpen(false)}
             >
-              {link}
-            </a>
+              {link.name}
+            </NavLink>
           ))}
-          <button className="bg-[#9f57f5] text-white text-sm font-semibold px-5 py-2.5 rounded-xl w-full">
+          <button className="bg-primary-accent text-white text-sm font-semibold px-5 py-2.5 rounded-xl w-full">
             Get Started
           </button>
         </motion.div>

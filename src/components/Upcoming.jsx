@@ -9,11 +9,12 @@ import {
   Bell,
   Share2,
 } from "lucide-react";
+// import { useState } from "react";
 
 const platforms = [
   {
     name: "Facebook",
-    // icon: <Facebook size={22} />,
+    icon: "/facebook-logo.svg",
     badge: "Coming Soon",
     badgeColor: "#9f57f5",
     color: "#1877f2",
@@ -43,8 +44,8 @@ const platforms = [
   },
   {
     name: "Instagram",
-    // icon: <Instagram size={22} />,
-    badge: "Beta Integration",
+    icon: "/instagram-logo.svg",
+    badge: "Coming Soon",
     badgeColor: "#c084fc",
     color: "#e1306c",
     blurColor: "#e1306c20",
@@ -74,6 +75,14 @@ const platforms = [
 ];
 
 export default function Upcoming() {
+  // const [notifiedPlatforms, setNotifiedPlatforms] = useState({});
+
+  // const handleNotifyMe = (platformName) => {
+  //   setNotifiedPlatforms((prev) => ({ ...prev, [platformName]: true }));
+  //   setTimeout(() => {
+  //     setNotifiedPlatforms((prev) => ({ ...prev, [platformName]: false }));
+  //   }, 3000);
+  // };
   return (
     <section
       id="upcoming"
@@ -82,7 +91,7 @@ export default function Upcoming() {
       {/* Background */}
       <div className="absolute top-0 right-0 w-150 h-150 bg-card-surface/40 rounded-full blur-[120px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto sm:px-6 px-4">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -101,7 +110,7 @@ export default function Upcoming() {
               Platform You Need.
             </span>
           </h2>
-          <p className="text-[#9CA3AF] text-lg max-w-2xl mx-auto">
+          <p className="text-[#9CA3AF] text-md max-w-2xl mx-auto">
             Google is just the start. Croissix AI is rolling out automation for
             every channel your local customers use.
           </p>
@@ -109,117 +118,126 @@ export default function Upcoming() {
 
         {/* Platform cards */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          {platforms.map((platform, pi) => (
-            <motion.div
-              key={platform.name}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{
-                duration: 0.6,
-                delay: pi * 0.15,
-                ease: [0.22, 1, 0.36, 1],
-              }}
-              whileHover={{ scale: 1.02, y: -4 }}
-              className="relative bg-card-surface/50 border border-primary-accent/20 rounded-2xl p-6 overflow-hidden group hover:border-primary-accent/35 transition-all duration-300 backdrop-blur-sm"
-            >
-              {/* Overlay shimmer */}
-              <div className="absolute inset-0 bg-linear-to-br from-white/2 to-transparent rounded-2xl pointer-events-none" />
+          {platforms.map((platform, pi) => {
+            // const isPlatformNotified = !!notifiedPlatforms[platform.name];
+            return (
+              <motion.div
+                key={platform.name}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{
+                  duration: 0.6,
+                  delay: pi * 0.15,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+                whileHover={{ scale: 1.02, y: -4 }}
+                className="relative bg-card-surface/50 border border-primary-accent/20 rounded-2xl px-3 py-6 sm:p-6 overflow-hidden group hover:border-primary-accent/35 transition-all duration-300 backdrop-blur-sm"
+              >
+                {/* Overlay shimmer */}
+                <div className="absolute inset-0 bg-linear-to-br from-white/2 to-transparent rounded-2xl pointer-events-none" />
 
-              {/* Blurred platform glow */}
-              <div
-                className="absolute -top-12 -right-12 w-40 h-40 rounded-full blur-[60px] opacity-30"
-                style={{ background: platform.color }}
-              />
+                {/* Blurred platform glow */}
+                <div
+                  className="absolute -top-12 -right-12 w-40 h-40 rounded-full blur-[60px] opacity-30"
+                  style={{ background: platform.color }}
+                />
 
-              {/* Header */}
-              <div className="flex items-start justify-between mb-5 relative">
-                <div className="flex items-center gap-3">
-                  {/* <div
-                    className="w-12 h-12 rounded-2xl flex items-center justify-center text-white shadow-lg"
-                    style={{
-                      background: `${platform.color}22`,
-                      border: `1px solid ${platform.color}40`,
-                      color: platform.color,
-                    }}
-                  >
-                    {platform.icon}
-                  </div> */}
-                  <div>
-                    <h3 className="text-white font-bold text-lg">
-                      {platform.name} Automation
-                    </h3>
-                    <p className="text-[#9CA3AF] text-xs">
-                      Multi-channel local marketing
-                    </p>
-                  </div>
-                </div>
-                <span
-                  className="text-xs font-bold px-3 py-1.5 rounded-full border"
-                  style={{
-                    background: `${platform.badgeColor}15`,
-                    color: platform.badgeColor,
-                    borderColor: `${platform.badgeColor}35`,
-                  }}
-                >
-                  {platform.badge}
-                </span>
-              </div>
-
-              {/* Feature grid */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 relative">
-                {platform.features.map((feature, fi) => (
-                  <motion.div
-                    key={fi}
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: pi * 0.1 + fi * 0.07 }}
-                    className="bg-base-bg/50 rounded-xl p-3.5 border border-white/5 hover:border-primary-accent/20 transition-colors duration-200"
-                  >
+                {/* Header */}
+                <div className="flex sm:flex-row flex-col items-start justify-between mb-5 relative">
+                  <div className="flex items-center gap-3">
                     <div
-                      className="w-7 h-7 rounded-lg flex items-center justify-center mb-2"
+                      className="w-12 h-12 rounded-2xl flex items-center justify-center text-white shadow-lg"
                       style={{
-                        background: `${platform.color}18`,
+                        // background: `${platform.color}22`,
+                        // border: `1px solid ${platform.color}40`,
                         color: platform.color,
                       }}
                     >
-                      {feature.icon}
+                      <img src={platform.icon} alt="Logo" />
                     </div>
-                    <p className="text-white font-semibold text-xs mb-1">
-                      {feature.title}
-                    </p>
-                    <p className="text-[#9CA3AF] text-[11px] leading-relaxed">
-                      {feature.desc}
-                    </p>
-                  </motion.div>
-                ))}
-              </div>
+                    <div>
+                      <h3 className="text-white font-bold text-lg">
+                        {platform.name} Automation
+                      </h3>
+                      <p className="text-[#9CA3AF] text-xs">
+                        Multi-channel local marketing
+                      </p>
+                    </div>
+                  </div>
+                  <div
+                    className="text-xs font-bold px-3 py-1.5 rounded-full border sm:mt-0 mt-5"
+                    style={{
+                      background: `${platform.badgeColor}15`,
+                      color: platform.badgeColor,
+                      borderColor: `${platform.badgeColor}35`,
+                    }}
+                  >
+                    {platform.badge}
+                  </div>
+                </div>
 
-              {/* Notify me */}
-              <div className="mt-4 flex items-center justify-between bg-base-bg/40 rounded-xl px-4 py-3 border border-white/5">
-                <p className="text-[#9CA3AF] text-xs">
-                  Get notified when {platform.name} launches
-                </p>
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.97 }}
-                  className="text-xs font-bold px-3 py-1.5 rounded-lg transition-all duration-200"
-                  style={{
-                    background: `${platform.badgeColor}20`,
-                    color: platform.badgeColor,
-                    border: `1px solid ${platform.badgeColor}30`,
-                  }}
-                >
-                  Notify Me
-                </motion.button>
-              </div>
-            </motion.div>
-          ))}
+                {/* Feature grid */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 relative">
+                  {platform.features.map((feature, fi) => (
+                    <motion.div
+                      key={fi}
+                      initial={{ opacity: 0, y: 10 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: pi * 0.1 + fi * 0.07 }}
+                      className="bg-base-bg/50 rounded-xl p-3.5 border border-white/5 hover:border-primary-accent/20 transition-colors duration-200"
+                    >
+                      <div
+                        className="w-7 h-7 rounded-lg flex items-center justify-center mb-2"
+                        style={{
+                          background: `${platform.color}18`,
+                          color: platform.color,
+                        }}
+                      >
+                        {feature.icon}
+                      </div>
+                      <p className="text-white font-semibold text-xs mb-1">
+                        {feature.title}
+                      </p>
+                      <p className="text-[#9CA3AF] text-[11px] leading-relaxed">
+                        {feature.desc}
+                      </p>
+                    </motion.div>
+                  ))}
+                </div>
+
+                {/* Notify me */}
+                {/* <div className="mt-4 flex items-center justify-between bg-base-bg/40 rounded-xl px-4 py-3 border border-white/5">
+                  <p className="text-[#9CA3AF] text-xs">
+                    Get notified when {platform.name} launches
+                  </p>
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.97 }}
+                    className="text-xs font-bold px-3 py-1.5 rounded-lg transition-all duration-200"
+                    style={{
+                      background: isPlatformNotified
+                        ? "rgba(0,255,0, 0.1)"
+                        : `${platform.badgeColor}20`,
+                      color: isPlatformNotified ? "green" : platform.badgeColor,
+                      border: isPlatformNotified
+                        ? "1px solid green"
+                        : `1px solid ${platform.badgeColor}30`,
+                    }}
+                    onClick={() => handleNotifyMe(platform.name)}
+                    disabled={isPlatformNotified}
+                  >
+                    {isPlatformNotified ? "You will be notified!" : "Notify Me"}
+                  </motion.button>
+                </div> */}
+              </motion.div>
+            );
+          })}
         </div>
 
         {/* Timeline strip */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -256,7 +274,7 @@ export default function Upcoming() {
               </div>
             ))}
           </div>
-        </motion.div>
+        </motion.div> */}
       </div>
     </section>
   );
