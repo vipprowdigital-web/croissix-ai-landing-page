@@ -171,7 +171,7 @@ export default function Metrics() {
         </div>
 
         {/* Bottom social proof strip */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -197,7 +197,7 @@ export default function Metrics() {
             <span className="text-white font-semibold text-sm ml-2">4.9/5</span>
             <span className="text-[#9CA3AF] text-sm ml-1">average rating</span>
           </div>
-        </motion.div>
+        </motion.div> */}
       </div>
     </section>
   );

@@ -74,7 +74,7 @@ function CTABanner() {
           <Button text="Download the App Now" />
         </motion.div>
 
-        <motion.p
+        {/* <motion.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -82,7 +82,7 @@ function CTABanner() {
           className="text-[#9CA3AF] text-xs mt-4"
         >
           Join 2,400+ local businesses already growing with Croissix AI.
-        </motion.p>
+        </motion.p> */}
       </div>
     </section>
   );
