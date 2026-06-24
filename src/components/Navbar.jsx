@@ -123,7 +123,13 @@ export default function Navbar() {
 
             <div
               className="relative z-10 flex items-center gap-2 w-full h-full bg-primary-accent hover:bg-primary-accent-hover text-white text-sm font-semibold px-5 py-2.5 rounded-[10px] transition-colors duration-200"
-              onClick={() => setIsModalOpen(true)}
+              // onClick={() => setIsModalOpen(true)}
+              onClick={() =>
+                window.open(
+                  "https://play.google.com/store/apps/details?id=com.vipprow.croissix",
+                  "_blank",
+                )
+              }
             >
               Get Started
             </div>
@@ -156,7 +162,15 @@ export default function Navbar() {
                 {link.name}
               </NavLink>
             ))}
-            <button className="bg-primary-accent text-white text-sm font-semibold px-5 py-2.5 rounded-xl w-full">
+            <button
+              className="bg-primary-accent text-white text-sm font-semibold px-5 py-2.5 rounded-xl w-full"
+              onClick={() =>
+                window.open(
+                  "https://play.google.com/store/apps/details?id=com.vipprow.croissix",
+                  "_blank",
+                )
+              }
+            >
               Get Started
             </button>
           </motion.div>

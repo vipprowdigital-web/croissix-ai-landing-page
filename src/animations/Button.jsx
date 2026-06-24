@@ -76,7 +76,13 @@ export default function Button({ text }) {
         whileHover="hover" // Broadcasts hover state to all children
         whileTap={{ scale: 0.97 }}
         className="group relative flex items-center justify-center gap-2 bg-primary-accent text-white font-bold px-8 py-4 rounded-xl shadow-xl shadow-primary-accent/30 text-sm capitalize overflow-hidden"
-        onClick={() => setIsModalOpen(true)}
+        // onClick={() => setIsModalOpen(true)}
+        onClick={() =>
+          window.open(
+            "https://play.google.com/store/apps/details?id=com.vipprow.croissix",
+            "_blank",
+          )
+        }
       >
         {/* 1. The Morphing Color Fill Layer */}
         <motion.div

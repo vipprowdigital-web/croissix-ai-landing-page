@@ -169,7 +169,7 @@ function Footer() {
               },
               {
                 name: "Portfolio",
-                link: "https://portfolio.vipprow.com",
+                link: "https://vipprow.com/portfolio",
               },
             ].map((link) => {
               return (
